@@ -1,6 +1,12 @@
-import discord, os
+import discord, os, json
 
 client = discord.Client()
+
+with open('config.json') as file:
+  config = json.load(file)
+print('Config has been loaded.')
+for item in config:
+  print(f'  {item} = {config[item]}')
 
 @client.event
 async def on_ready():
@@ -8,7 +14,7 @@ async def on_ready():
 
 @client.event
 async def on_message(message):
-  if message.content.startswith('s!'):
+  if message.content.startswith(config['prefix']):
     print(f'Potential Command Detected: {message.content}')
   elif message.content.startswith(f'<@!{client.user.id}>'):
     print(f'Potential Command Detected: {message.content}')
