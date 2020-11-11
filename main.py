@@ -87,23 +87,24 @@ commands['help'] = [bothelp, "You're looking at it!"]
 
 @client.event
 async def on_message(message):
-  if message.content.startswith(config['prefix']):
-    splitmessage = message.content.split()
-    cmd = splitmessage[0]
-    for command in commands:
-      if cmd == f'{config["prefix"]}{command}':
-        await message.add_reaction('👍')
-        args = splitmessage[1:]
-        await commands[command][0](message, args)
-        break
-  elif message.content.startswith(f'<@!{client.user.id}>'):
-    splitmessage = message.content.split()
-    cmd = splitmessage[1]
-    for command in commands:
-      if cmd == command:
-        await message.add_reaction('👍')
-        args = splitmessage[2:]
-        await commands[command][0](message, args)
-        break
+  if not isinstance(message.channel, discord.channel.DMChannel):
+    if message.content.startswith(config['prefix']):
+      splitmessage = message.content.split()
+      cmd = splitmessage[0]
+      for command in commands:
+        if cmd == f'{config["prefix"]}{command}':
+          await message.add_reaction('👍')
+          args = splitmessage[1:]
+          await commands[command][0](message, args)
+          break
+    elif message.content.startswith(f'<@!{client.user.id}>'):
+      splitmessage = message.content.split()
+      cmd = splitmessage[1]
+      for command in commands:
+        if cmd == command:
+          await message.add_reaction('👍')
+          args = splitmessage[2:]
+          await commands[command][0](message, args)
+          break
 
 client.run(os.environ['TOKEN'])
