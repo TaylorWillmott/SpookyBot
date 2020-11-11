@@ -1,4 +1,4 @@
-import requests, discord
+import requests, discord, inspirobot
 from random import randint
 
 async def xkcd(message, args):
@@ -33,3 +33,7 @@ async def xkcd(message, args):
 async def dadjoke(message, args):
   joke = requests.get('https://icanhazdadjoke.com', headers={"Accept": "text/plain"}).text
   await message.channel.send(joke)
+
+async def quote(message, args):
+  sentmessage = await message.channel.send('Thinking...')
+  await sentmessage.edit(content=inspirobot.flow()[0])

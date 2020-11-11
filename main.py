@@ -78,6 +78,7 @@ commands = {
   # Fun
   'xkcd': [fun.xkcd, 'Grab a specific xkcd comic or let the bot pick one.'],
   'dadjoke': [fun.dadjoke, 'Dad jokes are funny, right?'],
+  'quote': [fun.quote, 'Have the bot come up with a quote for you.'],
 }
 
 async def bothelp(message, args):
