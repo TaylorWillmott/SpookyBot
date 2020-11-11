@@ -1,3 +1,4 @@
+from asyncio import sleep
 from random import randint
 
 async def rtd(message, args):
@@ -6,8 +7,10 @@ async def rtd(message, args):
     limit = int(args[0])
   except:
     limit = 6
+  sentmessage = await message.channel.send(f'Rolling a d{limit}...')
+  await sleep(3)
   result = randint(1,limit)
   if result < len(numbers):
-    await message.channel.send(content = f'You rolled a :{numbers[result-1]}:')
+    await sentmessage.edit(content = f'You rolled a :{numbers[result-1]}:')
   else:
-    await message.channel.send(content = f'You rolled a {str(result)}')
+    await sentmessage.edit(content = f'You rolled a {str(result)}')
