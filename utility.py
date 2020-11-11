@@ -7,7 +7,6 @@ async def rtd(message, args):
   except:
     limit = 6
   result = randint(1,limit)
-  await message.channel.send(content = f'You rolled a {str(result)}')
   if result < len(numbers):
     await message.channel.send(content = f'You rolled a :{numbers[result-1]}:')
   else:
