@@ -37,3 +37,7 @@ async def dadjoke(message, args):
 async def quote(message, args):
   sentmessage = await message.channel.send('Thinking...')
   await sentmessage.edit(content=inspirobot.flow()[0])
+
+async def inspire(message, args):
+  sentmessage = await message.channel.send('Thinking...')
+  await sentmessage.edit(content=inspirobot.generate().url)
