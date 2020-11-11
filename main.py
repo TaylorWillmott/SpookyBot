@@ -67,7 +67,10 @@ client = discord.Client( status = discord.Status.idle, activity = activities[ran
 
 @client.event
 async def on_ready():
+    print(f'Prefix: {config["prefix"]}')
+    print(f'Activity: {str(client.activity.type).split(".")[1]} - {client.activity.name}')
     print(f'Logged in as {client.user.name}#{client.user.discriminator} ({client.user.id})')
+    print(f'{client.user.name} is now online in {len(client.guilds)} servers!')
 
 commands = {
   # Utility
