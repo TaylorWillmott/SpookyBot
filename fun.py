@@ -29,3 +29,7 @@ async def xkcd(message, args):
   await message.channel.send(
     invalid_num and "That doesn't look like a valid comic ID. I'll fetch a random one instead..." or "",
     embed=embed)
+
+async def dadjoke(message, args):
+  joke = requests.get('https://icanhazdadjoke.com', headers={"Accept": "text/plain"}).text
+  await message.channel.send(joke)

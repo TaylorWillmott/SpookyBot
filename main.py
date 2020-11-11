@@ -77,6 +77,7 @@ commands = {
   'rtd': [utility.rtd, 'Roll the dice. Will you be lucky?'],
   # Fun
   'xkcd': [fun.xkcd, 'Grab a specific xkcd comic or let the bot pick one.'],
+  'dadjoke': [fun.dadjoke, 'Dad jokes are funny, right?'],
 }
 
 async def bothelp(message, args):
