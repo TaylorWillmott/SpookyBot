@@ -1,15 +1,38 @@
 # Import External Modules
-import discord, os, json
+import discord, os
 from random import randint
 
 # Import Bot Command Modules
 import utility
 
-with open('config.json') as file:
-  config = json.load(file)
-print('Config has been loaded.')
-for item in config:
-  print(f'  {item} = {config[item]}')
+# Set Up Config Dictionary
+config = {
+  'prefix': 's!',
+  'activities': {
+    'playing': [
+    # Playing...
+      "Discord Bot Simulator",
+      "Among Us 2",
+      "Cyberpunk 2077"
+    ],
+    'listening': [
+    # Listening to...
+      "Human Music",
+      "Creepy Songs",
+      "Caramelldansen",
+      "a Podcast",
+      "TV Static"
+    ],
+    'watching': [
+    # Watching...
+      "the ships roll in"
+    ],
+    'competing': [
+    # Competing in...
+      "an Eating Contest"
+    ]
+  }
+}
 
 # Randomised Activities
 activities = []
