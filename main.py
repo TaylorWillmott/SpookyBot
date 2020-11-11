@@ -27,6 +27,7 @@ async def on_message(message):
     cmd = splitmessage[0]
     for command in commands:
       if cmd == f'{config["prefix"]}{command}':
+        await message.add_reaction('👍')
         args = splitmessage[1:]
         await commands[command](message, args)
         break
@@ -35,6 +36,7 @@ async def on_message(message):
     cmd = splitmessage[1]
     for command in commands:
       if cmd == command:
+        await message.add_reaction('👍')
         args = splitmessage[2:]
         await commands[command](message, args)
         break
