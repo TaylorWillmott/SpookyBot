@@ -1,0 +1,8 @@
+# Repl.it Environment Variables File
+.env
+
+# Python Poetry Lock File (Generated Automatically)
+poetry.lock
+
+# Python Cache Files
+*.pyc
