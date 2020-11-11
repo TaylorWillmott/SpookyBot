@@ -1,3 +1,23 @@
 {
-  "prefix": "s!"
+  "prefix": "s!",
+  "activities": {
+    "playing": [
+      "Discord Bot Simulator",
+      "Among Us 2",
+      "Cyberpunk 2077"
+    ],
+    "listening": [
+      "Human Music",
+      "Creepy Songs",
+      "Caramelldansen",
+      "a Podcast",
+      "TV Static"
+    ],
+    "watching": [
+      "the ships roll in"
+    ],
+    "competing": [
+      "an Eating Contest"
+    ]
+  }
 }

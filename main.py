@@ -1,16 +1,46 @@
 # Import External Modules
 import discord, os, json
+from random import randint
 
 # Import Bot Command Modules
 import utility
-
-client = discord.Client()
 
 with open('config.json') as file:
   config = json.load(file)
 print('Config has been loaded.')
 for item in config:
   print(f'  {item} = {config[item]}')
+
+# Randomised Activities
+activities = []
+try: # Playing...
+  for thing in config['activities']['playing']:
+    activities.append(discord.Game(thing))
+except:
+  print("Something went wrong when trying to import 'activities.playing'")
+
+try: # Listening to...
+  for thing in config['activities']['listening']:
+    activities.append(discord.Activity(type=discord.ActivityType.listening, name=thing))
+except:
+  print("Something went wrong when trying to import 'activities.listening'")
+
+try: # Watching...
+  for thing in config['activities']['watching']:
+    activities.append(discord.Activity(type=discord.ActivityType.watching, name=thing))
+except:
+  print("Something went wrong when trying to import 'activities.watching'")
+
+try: # Competing in...
+  for thing in config['activities']['competing']:
+    activities.append(discord.Activity(type=discord.ActivityType.competing, name=thing))
+except:
+  print("Something went wrong when trying to import 'activities.competing'")
+
+if len(activities) == 0:
+  activities.append(discord.Game(''))
+
+client = discord.Client( status = discord.Status.idle, activity = activities[randint(0,len(activities)-1)])
 
 @client.event
 async def on_ready():
