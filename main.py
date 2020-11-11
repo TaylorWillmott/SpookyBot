@@ -3,7 +3,7 @@ import discord, os
 from random import randint
 
 # Import Bot Command Modules
-import utility
+import utility, fun
 
 # Set Up Config Dictionary
 config = {
@@ -70,7 +70,10 @@ async def on_ready():
     print(f'Logged in as {client.user.name}#{client.user.discriminator} ({client.user.id})')
 
 commands = {
+  # Utility
   'rtd': [utility.rtd, 'Roll the dice. Will you be lucky?'],
+  # Fun
+  'xkcd': [fun.xkcd, 'Grab a specific xkcd comic or let the bot pick one.'],
 }
 
 async def bothelp(message, args):
