@@ -11,6 +11,6 @@ async def rtd(message, args):
   await sleep(3)
   result = randint(1,limit)
   if result < len(numbers):
-    await sentmessage.edit(content = f'You rolled a :{numbers[result-1]}:')
+    await sentmessage.edit(content = sentmessage.content + f'\nYou rolled a :{numbers[result-1]}:')
   else:
-    await sentmessage.edit(content = f'You rolled a {str(result)}')
+    await sentmessage.edit(content = sentmessage.content + f'\nYou rolled a {str(result)}')
