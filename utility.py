@@ -1,5 +1,9 @@
 from random import randint
 
 async def rtd(message, args):
-  result = randint(1,6)
+  try:
+    limit = int(args[0])
+  except:
+    limit = 6
+  result = randint(1,limit)
   await message.channel.send(content = f'You rolled a {str(result)}')
