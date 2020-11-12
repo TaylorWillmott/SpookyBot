@@ -80,6 +80,7 @@ commands = {
   'dadjoke': [fun.dadjoke, 'Dad jokes are funny, right?'],
   'quote': [fun.quote, 'Have the bot come up with a quote for you.'],
   'inspire': [fun.inspire, 'Have the bot make you an inspirational image.'],
+  'gif': [fun.gif, 'Get a gif related to your search'],
 }
 
 async def bothelp(message, args):

@@ -1,4 +1,4 @@
-import requests, discord, inspirobot
+import requests, discord, inspirobot, urllib.parse
 from random import randint
 
 async def xkcd(message, args):
@@ -41,3 +41,17 @@ async def quote(message, args):
 async def inspire(message, args):
   sentmessage = await message.channel.send('Thinking...')
   await sentmessage.edit(content=inspirobot.generate().url)
+
+async def gif(message, args):
+  if len(args) > 0:
+    query = ' '.join(args)
+    sentmessage = await message.channel.send(f"Searching for '{query}' gifs...")
+    response = requests.get(f'https://api.giphy.com/v1/gifs/search?q={urllib.parse.quote(query)}&api_key=hCKgiae5XgjiYbKPTdgrSuh8P7l2xWMT').json()
+    if len(response['data']) > 0:
+      await sentmessage.edit(content=response['data'][0]['url'])
+    else:
+      await sentmessage.edit(content=f"Sorry, I couldn't find any gifs related to '{query}'!")
+  else:
+    sentmessage = await message.channel.send("Fetching a random gif...")
+    response = requests.get('https://api.giphy.com/v1/gifs/random?api_key=hCKgiae5XgjiYbKPTdgrSuh8P7l2xWMT').json()
+    await sentmessage.edit(content=response['data']['url'])
