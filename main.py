@@ -92,6 +92,11 @@ async def bothelp(message, args):
 
 commands['help'] = [bothelp, "You're looking at it!"]
 
+async def ping(message, args):
+  await message.channel.send(f'Pong! (~{round(client.latency*1000)}ms)')
+
+commands['ping'] = [ping, "Ping the bot to check its latency."]
+
 @client.event
 async def on_message(message):
   if not isinstance(message.channel, discord.channel.DMChannel):
