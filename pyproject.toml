@@ -5,7 +5,7 @@ description = "Custom Discord bot made for Spectral Servers."
 authors = ["TheRandomnessGuy"]
 
 [tool.poetry.dependencies]
-python = "^3.8"
+python = "^3.5.3"
 discord = "^1.0.1"
 insprio = "*"
 
