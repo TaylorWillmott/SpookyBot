@@ -14,3 +14,7 @@ async def rtd(message, args):
     await sentmessage.edit(content = sentmessage.content + f'\nYou rolled a :{numbers[result-1]}:')
   else:
     await sentmessage.edit(content = sentmessage.content + f'\nYou rolled a {str(result)}')
+
+commands = {
+  'rtd': [rtd, 'Roll the dice. Will you be lucky?'],
+}

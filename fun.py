@@ -55,3 +55,11 @@ async def gif(message, args):
     sentmessage = await message.channel.send("Fetching a random gif...")
     response = requests.get('https://api.giphy.com/v1/gifs/random?api_key=hCKgiae5XgjiYbKPTdgrSuh8P7l2xWMT').json()
     await sentmessage.edit(content=response['data']['url'])
+
+commands = {
+  'xkcd': [xkcd, 'Grab a specific xkcd comic or let the bot pick one.'],
+  'dadjoke': [dadjoke, 'Dad jokes are funny, right?'],
+  'quote': [quote, 'Have the bot come up with a quote for you.'],
+  'inspire': [inspire, 'Have the bot make you an inspirational image.'],
+  'gif': [gif, 'Get a gif related to your search'],
+}

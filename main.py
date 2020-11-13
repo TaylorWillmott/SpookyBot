@@ -75,16 +75,11 @@ async def on_ready():
       await client.change_presence(status = discord.Status.idle, activity = activities[randint(0,len(activities)-1)])
       await sleep(randint(300, 600))
 
-commands = {
-  # Utility
-  'rtd': [utility.rtd, 'Roll the dice. Will you be lucky?'],
-  # Fun
-  'xkcd': [fun.xkcd, 'Grab a specific xkcd comic or let the bot pick one.'],
-  'dadjoke': [fun.dadjoke, 'Dad jokes are funny, right?'],
-  'quote': [fun.quote, 'Have the bot come up with a quote for you.'],
-  'inspire': [fun.inspire, 'Have the bot make you an inspirational image.'],
-  'gif': [fun.gif, 'Get a gif related to your search'],
-}
+commands = {}
+for cmd in utility.commands:
+  commands[cmd] = utility.commands[cmd]
+for cmd in fun.commands:
+  commands[cmd] = fun.commands[cmd]
 
 async def bothelp(message, args):
   embed = discord.Embed(title = f'{client.user.name} Commands', description = '')
