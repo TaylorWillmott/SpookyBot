@@ -1,6 +1,7 @@
 # Import External Modules
 import discord, os
 from random import randint
+from asyncio import sleep
 
 # Import Bot Command Modules
 import utility, fun
@@ -63,14 +64,16 @@ except:
 if len(activities) == 0:
   activities.append(discord.Game(''))
 
-client = discord.Client( status = discord.Status.idle, activity = activities[randint(0,len(activities)-1)])
+client = discord.Client()
 
 @client.event
 async def on_ready():
     print(f'Prefix: {config["prefix"]}')
-    print(f'Activity: {str(client.activity.type).split(".")[1]} - {client.activity.name}')
     print(f'Logged in as {client.user.name}#{client.user.discriminator} ({client.user.id})')
     print(f'{client.user.name} is now online in {len(client.guilds)} servers!')
+    while True:
+      await client.change_presence(status = discord.Status.idle, activity = activities[randint(0,len(activities)-1)])
+      await sleep(randint(300, 600))
 
 commands = {
   # Utility
