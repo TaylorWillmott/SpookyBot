@@ -109,12 +109,13 @@ async def on_message(message):
           break
     elif message.content.startswith(f'<@!{client.user.id}>'):
       splitmessage = message.content.split()
-      cmd = splitmessage[1]
-      for command in commands:
-        if cmd == command:
-          await message.add_reaction('👍')
-          args = splitmessage[2:]
-          await commands[command][0](message, args)
-          break
+      if len(splitmessage) > 1:
+        cmd = splitmessage[1]
+        for command in commands:
+          if cmd == command:
+            await message.add_reaction('👍')
+            args = splitmessage[2:]
+            await commands[command][0](message, args)
+            break
 
 client.run(os.environ['TOKEN'])
