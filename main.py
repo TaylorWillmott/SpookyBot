@@ -107,7 +107,7 @@ async def on_message(message):
           args = splitmessage[1:]
           await commands[command][0](message, args)
           break
-    elif message.content.startswith(f'<@!{client.user.id}>'):
+    elif message.content.startswith(f'<@{client.user.id}>') or message.content.startswith(f'<@!{client.user.id}>'):
       splitmessage = message.content.split()
       if len(splitmessage) > 1:
         cmd = splitmessage[1]
