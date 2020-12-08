@@ -94,3 +94,4 @@ Secondly, you would need to add a for-loop for your module to import all of its 
 | quote | Posts a randomly generated quote from [inspirobot.me](https://inspirobot.me/) to the chat. | `s!quote` |
 | inspire | Posts a randomly generated inspirational image from [inspirobot.me](https://inspirobot.me/) to the chat. | `s!inspire` |
 | gif | Posts a random gif or the top result for your search query from [giphy.com](https://giphy.com/) to the chat. | `s!gif [query(optional)]` |
+| slotmachine | Simulates a slot machine via a chat message. | `s!slotmachine` |
