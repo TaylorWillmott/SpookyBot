@@ -1,5 +1,6 @@
 import requests, discord, inspirobot, urllib.parse
 from random import randint
+from asyncio import sleep
 
 async def xkcd(message, args):
   invalid_num = False # Tracks if we tried and failed to fetch a specific comic.
@@ -56,10 +57,40 @@ async def gif(message, args):
     response = requests.get('https://api.giphy.com/v1/gifs/random?api_key=hCKgiae5XgjiYbKPTdgrSuh8P7l2xWMT').json()
     await sentmessage.edit(content=response['data']['url'])
 
+async def slotmachine(message, args):
+  icons = ['gem','eggplant','watermelon','lemon','cherries','tangerine','strawberry','grapes','peach']
+  randomicon = lambda current: [icon for icon in icons if icon != current][randint(0, len(icons) - 2)]
+  results = [randomicon(''), randomicon(''), randomicon('')]
+  slotstring = lambda: f':{results[0]}: :{results[1]}: :{results[2]}:'
+  reps = 3
+  sentmessage = await message.channel.send(f'Here goes...\n{slotstring()}')
+  await sleep(1)
+  for i in range(0,reps-1):
+    results[0] = randomicon(results[0])
+    results[1] = randomicon(results[1])
+    results[2] = randomicon(results[2])
+    await sentmessage.edit(content = f'Here goes...\n{slotstring()}')
+    await sleep(1)
+  for i in range(0,reps):
+    results[1] = randomicon(results[1])
+    results[2] = randomicon(results[2])
+    await sentmessage.edit(content = f'Two more...\n{slotstring()}')
+    await sleep(1)
+  for i in range(0,reps-1):
+    results[2] = randomicon(results[2])
+    await sentmessage.edit(content = f'Last one...\n{slotstring()}')
+    await sleep(1)
+  results[2] = randomicon(results[2])
+  if results[0] == results[1] and results[1] == results[2]:
+    await sentmessage.edit(content = f'You win! Congratulations!\n{slotstring()}')
+  else:
+    await sentmessage.edit(content = f'You lost. Better luck next time!\n{slotstring()}')
+
 commands = {
   'xkcd': [xkcd, 'Grab a specific xkcd comic or let the bot pick one.'],
   'dadjoke': [dadjoke, 'Dad jokes are funny, right?'],
   'quote': [quote, 'Have the bot come up with a quote for you.'],
   'inspire': [inspire, 'Have the bot make you an inspirational image.'],
   'gif': [gif, 'Get a gif related to your search'],
+  'slotmachine' : [slotmachine, 'Feeling lucky?'],
 }
