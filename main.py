@@ -85,7 +85,8 @@ async def bothelp(message, args):
   embed = discord.Embed(title = f'{client.user.name} Commands', description = '')
   embed.set_author(name=f'My prefix is currently set to: {config["prefix"]}')
   for command in commands:
-    embed.description += f'{config["prefix"]}{command} - {commands[command][1]}\n'
+    if commands[command][1] != '':
+      embed.description += f'{config["prefix"]}{command} - {commands[command][1]}\n'
   await message.channel.send(embed=embed)
 
 commands['help'] = [bothelp, "You're looking at it!"]
