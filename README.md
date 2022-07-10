@@ -13,10 +13,10 @@ However, if you're determined to have full control over your bot, you're welcome
 ## How can I contribute?
 There are two main areas where you can contribute to SpookyBot: ideas and code.
 
-If you have an idea for a feature or other improvement, feel free to [raise an issue](https://github.com/TheRandomnessGuy/SpookyBot/issues/new) and it might get implemented; this is a hobby project though so no promises!
+If you have an idea for a feature or other improvement, feel free to [raise an issue](https://github.com/TaylorWillmott/SpookyBot/issues/new) and it might get implemented; this is a hobby project though so no promises!
 Same goes for bugs; if you find one please raise an issue and I'll try to get it fixed.
 
-Alternatively, if you feel like having a go at some coding yourself you can take a fork of the repo and try to either resolve an existing issue (check out the [Good First Issue](https://github.com/TheRandomnessGuy/SpookyBot/labels/Good%20First%20Issue) label if you're unsure) or implement an idea of your own.
+Alternatively, if you feel like having a go at some coding yourself you can take a fork of the repo and try to either resolve an existing issue (check out the [Good First Issue](https://github.com/TaylorWillmott/SpookyBot/labels/Good%20First%20Issue) label if you're unsure) or implement an idea of your own.
 When your code is ready to be merged back into the main repo, make a pull request and I'll take a look at it!
 
 # How can I use SpookyBot?
